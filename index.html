@@ -1,2 +1,190 @@
-<h1>Merhaba!</h1>
-<p>Bu benim ilk web sitem.</p>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiftLog 5x5 Pro - iOS App</title>
+    <style>
+        /* GENEL AYARLAR */
+        :root {
+            --primary-color: #007AFF; /* Apple Mavisi */
+            --bg-color: #f5f5f7;
+            --text-color: #1d1d1f;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* HERO BÖLÜMÜ (Ana Ekran) */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: white;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            background-color: #ddd; 
+            object-fit: cover;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+            font-weight: 700;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            color: #86868b;
+            margin-bottom: 30px;
+        }
+        .app-store-btn {
+            display: inline-block;
+            width: 180px;
+            transition: transform 0.2s;
+        }
+        .app-store-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* ÖZELLİKLER BÖLÜMÜ */
+        .features {
+            padding: 60px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* EKRAN GÖRÜNTÜLERİ (MOCKUP) */
+        .screenshots {
+            text-align: center;
+            padding: 40px 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .screenshot-img {
+            width: 220px; /* iPhone ekran oranı */
+            height: auto;
+            border-radius: 20px;
+            margin: 0 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 1px solid #e5e5e5;
+            display: inline-block;
+        }
+
+        /* GİZLİLİK VE İLETİŞİM (Apple İçin Zorunlu) */
+        .legal-section {
+            background-color: white;
+            padding: 60px 20px;
+            margin-top: 40px;
+            border-top: 1px solid #e5e5e5;
+        }
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h2 {
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: #86868b;
+        }
+        a { color: var(--primary-color); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="appIcon.jpeg" alt="LiftLog 5x5 Pro Icon" class="app-icon">
+        
+        <h1>LiftLog 5x5 Pro</h1>
+        <p class="tagline">Güç antrenmanlarınızı takip edin, hedeflerinize ulaşın.</p>
+        
+        <a href="#" class="app-store-btn">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/tr-tr?size=250x83" alt="App Store'dan İndirin" style="width: 100%;">
+        </a>
+    </header>
+
+    <div class="container">
+        <div class="features">
+            <div class="feature-card">
+                <h3>🏋️‍♂️ 5x5 Antrenman Takibi</h3>
+                <p>Setlerinizi, tekrarlarınızı ve ağırlıklarınızı kolayca kaydedin.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📈 İlerleme Grafikleri</h3>
+                <p>Güç artışınızı görsel grafiklerle analiz edin.</p>
+            </div>
+            <div class="feature-card">
+                <h3>⏱️ Otomatik Zamanlayıcı</h3>
+                <p>Setler arası dinlenme sürenizi otomatik takip edin.</p>
+            </div>
+        </div>
+
+        <div class="screenshots">
+            <img src="https://via.placeholder.com/230x500?text=Ekran+Goruntusu+1" class="screenshot-img" alt="Ekran Görüntüsü 1">
+            <img src="https://via.placeholder.com/230x500?text=Ekran+Goruntusu+2" class="screenshot-img" alt="Ekran Görüntüsü 2">
+            <img src="https://via.placeholder.com/230x500?text=Ekran+Goruntusu+3" class="screenshot-img" alt="Ekran Görüntüsü 3">
+        </div>
+    </div>
+
+    <div class="legal-section">
+        <div class="legal-content">
+            
+            <h2 id="contact">İletişim & Destek (Support)</h2>
+            <p>LiftLog 5x5 Pro ile ilgili herhangi bir sorunuz, hatanız veya öneriniz varsa lütfen bize ulaşın.</p>
+            <p>📧 E-posta: <a href="mailto:talhabekaroglu@gmail.com">talhabekaroglu@gmail.com</a></p>
+
+            <h2 id="privacy">Gizlilik Politikası (Privacy Policy)</h2>
+            <p><strong>Son Güncelleme:</strong> 08.02.2026</p>
+            <p>
+                <strong>LiftLog 5x5 Pro</strong> ("Uygulama"), kullanıcı gizliliğine büyük önem verir. 
+                Bu gizlilik politikası, uygulamamızı kullanırken verilerinizin nasıl işlendiğini açıklar.
+            </p>
+            <h3>Veri Toplama ve Kullanım</h3>
+            <p>
+                Uygulamamız, kişisel verilerinizi sunucularımızda toplamaz veya saklamaz. 
+                Girdiğiniz tüm antrenman verileri, ağırlık kayıtları ve ayarlar sadece <strong>kendi cihazınızda</strong> (yerel olarak) saklanır.
+            </p>
+            <h3>Üçüncü Taraf Hizmetler</h3>
+            <p>
+                Uygulama, temel işlevselliği sağlamak dışında herhangi bir üçüncü taraf takip yazılımı veya reklam ağı kullanmamaktadır.
+            </p>
+            <h3>İletişim</h3>
+            <p>
+                Gizlilik politikamızla ilgili sorularınız için <a href="mailto:talhabekaroglu@gmail.com">talhabekaroglu@gmail.com</a> adresinden bize ulaşabilirsiniz.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Talha Bekaroğlu. Tüm hakları saklıdır.</p>
+    </footer>
+
+</body>
+</html>
