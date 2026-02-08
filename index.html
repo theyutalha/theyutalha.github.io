@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LiftLog 5x5 Pro - Güç ve Hipertrofi Koçu</title>
+    <meta name="description" content="LiftLog 5x5 Pro ile StrongLifts 5x5, Starting Strength, Madcow 5x5 ve Texas Method programlarını takip edin. İlerleme grafikleri, deload ve akıllı set zamanlayıcı ile daha güçlü antrenman yapın.">
+    <meta name="keywords" content="5x5, strength training, powerlifting, stronglifts, starting strength, madcow, texas method, antrenman uygulaması">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:title" content="LiftLog 5x5 Pro - Güç ve Hipertrofi Koçu">
+    <meta property="og:description" content="Güçlenmek, kas inşa etmek ve sınırlarını zorlamak isteyenler için kapsamlı antrenman koçu.">
+    <meta property="og:image" content="appIcon.jpeg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="LiftLog 5x5 Pro">
+    <meta property="twitter:description" content="StrongLifts 5x5, Starting Strength, Madcow 5x5 ve Texas Method programları tek uygulamada.">
+    <meta property="twitter:image" content="appIcon.jpeg">
+    <link rel="icon" type="image/jpeg" href="appIcon.jpeg">
+    <link rel="apple-touch-icon" href="appIcon.jpeg">
     <style>
         /* GENEL AYARLAR & RENKLER */
         :root {
@@ -37,6 +50,32 @@
             padding: 80px 20px 60px;
             background-color: #fff;
             border-bottom: 1px solid #e5e5e5;
+            position: relative;
+        }
+        .language-picker {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #4b4b4f;
+            background: #f4f4f6;
+            border: 1px solid #e6e6ea;
+            border-radius: 10px;
+            padding: 6px 10px;
+        }
+        .language-picker select {
+            border: 0;
+            background: transparent;
+            color: #1d1d1f;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .language-picker select:focus {
+            outline: none;
         }
         
         .app-icon {
@@ -70,6 +109,11 @@
             display: inline-block;
             width: 190px;
             transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .app-store-btn img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         .app-store-btn:hover {
             transform: scale(1.04);
@@ -120,7 +164,62 @@
         .tag-adv { background: #FFEBEE; color: #FF3B30; }
 
         .program-card h3 { margin: 0 0 10px 0; font-size: 1.4rem; }
-        .program-card p { color: #555; font-size: 0.95rem; margin-bottom: 0; }
+        .program-card p { color: #555; font-size: 0.95rem; margin-bottom: 10px; }
+        .program-card p:last-child { margin-bottom: 0; }
+
+        .info-section {
+            padding: 10px 0 60px;
+            background: linear-gradient(180deg, #f5f5f7 0%, #eef5ff 100%);
+        }
+        .info-card {
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.04);
+        }
+        .info-card h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+        .info-card p {
+            margin: 0 0 10px;
+            color: #4b4b4f;
+        }
+        .info-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 10px;
+        }
+        .info-list li {
+            color: #4b4b4f;
+            line-height: 1.5;
+            background: #f7f9fc;
+            border-radius: 12px;
+            padding: 10px 12px;
+            border: 1px solid #edf0f5;
+        }
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 20px;
+        }
+        .usage-card {
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.04);
+        }
+        .usage-card h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
 
         /* ÖZELLİKLER BÖLÜMÜ */
         .features-section {
@@ -156,6 +255,9 @@
             padding: 60px 0;
             text-align: center;
             background-color: var(--bg-color);
+        }
+        .screenshots-title {
+            margin-bottom: 30px;
         }
         .screenshots-scroll {
             display: flex;
@@ -198,6 +300,10 @@
             font-size: 0.95rem;
             margin-bottom: 15px;
         }
+        .legal-updated {
+            color: #666;
+            font-size: 0.85rem;
+        }
         
         footer {
             text-align: center;
@@ -208,18 +314,51 @@
         }
         a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
         a:hover { text-decoration: underline; }
+
+        @media (max-width: 700px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .language-picker {
+                position: static;
+                margin: 0 auto 16px;
+                width: fit-content;
+            }
+            .section-title {
+                font-size: 1.65rem;
+                margin-bottom: 28px;
+            }
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+            .info-card,
+            .usage-card {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
+        <div class="language-picker">
+            <label for="languageSelect">Dil</label>
+            <select id="languageSelect" aria-label="Dil seçimi">
+                <option value="tr">Türkçe</option>
+                <option value="en">English</option>
+                <option value="de">Deutsch</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="ar">العربية</option>
+            </select>
+        </div>
         <img src="appIcon.jpeg" alt="LiftLog 5x5 Pro" class="app-icon">
         
         <h1>LiftLog 5x5 Pro</h1>
         <p class="tagline">Güçlenmek, kas inşa etmek ve sınırlarını zorlamak isteyenler için en kapsamlı antrenman koçu.</p>
         
-        <a href="#" class="app-store-btn">
-            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/tr-tr?size=250x83" alt="App Store'dan İndirin" style="width: 100%;">
+        <a href="https://apps.apple.com/tr/search?term=LiftLog%205x5%20Pro" class="app-store-btn" target="_blank" rel="noopener noreferrer" aria-label="LiftLog 5x5 Pro için App Store sayfasını aç">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/tr-tr?size=250x83" alt="App Store'dan İndirin">
         </a>
     </header>
 
@@ -230,27 +369,62 @@
             <div class="program-card">
                 <span class="program-tag tag-novice">Başlangıç</span>
                 <h3>StrongLifts 5x5</h3>
-                <p>Lineer ilerlemenin en saf hali. Her antrenmanda ağırlık artırarak temelleri sağlamlaştırın. A/B döngüsü ve 5 set 5 tekrar ile güce en hızlı giriş.</p>
+                <p>Lineer ilerleme odaklı temel 5x5 programı.</p>
+                <p>Kimler için: Yeni başlayan ve temel kuvvet kazanımı isteyenler.</p>
+                <p>Süre: 8-16 hafta veya artış sürdüğü kadar.</p>
+                <p>Not: Hareketler 5x5, Deadlift genelde 1x5 uygulanır.</p>
             </div>
 
             <div class="program-card">
                 <span class="program-tag tag-novice">Başlangıç</span>
                 <h3>Starting Strength</h3>
-                <p>3x5 sistemi ile daha düşük hacim, daha yüksek odaklanma. Teknik gelişimi ve temel kuvvet inşası için efsanevi bir başlangıç programı.</p>
+                <p>3x5 yaklaşımıyla teknik ve kuvvet temeli kurar.</p>
+                <p>Kimler için: Yeni başlayanlar ve sade bir başlangıç isteyenler.</p>
+                <p>Süre: 8-12 hafta.</p>
+                <p>Not: Haftada 3 gün, A/B günleri dönüşümlü ilerler.</p>
             </div>
 
             <div class="program-card">
                 <span class="program-tag tag-inter">Orta Seviye</span>
                 <h3>Madcow 5x5</h3>
-                <p>Günlük artışlar durduğunda devreye girer. Haftalık periyotlama ve artan set ağırlıkları (Ramping Sets) ile platoları kırmak için tasarlandı.</p>
+                <p>Orta seviye hacim + yoğunluk dengeli 3 günlük plan.</p>
+                <p>Kimler için: Başlangıcı geçmiş, hacim ve güç isteyenler.</p>
+                <p>Süre: 12+ hafta.</p>
+                <p>Not: A/B + C günü ile ilerler.</p>
             </div>
 
             <div class="program-card">
                 <span class="program-tag tag-adv">İleri Seviye</span>
                 <h3>Texas Method</h3>
-                <p>Hacim (Volume) ve Yoğunluk (Intensity) günleri ayrılmıştır. Hafta başı sınırları zorla, hafta sonu kişisel rekorunu kır.</p>
+                <p>Hacim/Toparlanma/Yoğunluk günleriyle ilerler.</p>
+                <p>Kimler için: Orta-ileri seviye, yoğunluk kaldırabilenler.</p>
+                <p>Süre: 12+ hafta.</p>
+                <p>Not: Volume/Recovery/Intensity günleri farklı yüklerle çalışılır.</p>
             </div>
 
+        </div>
+    </div>
+
+    <div class="info-section">
+        <div class="container">
+            <h2 class="section-title">Program Hakkında</h2>
+            <div class="info-card">
+                <h3>StrongLifts 5x5 Nedir?</h3>
+                <p>StrongLifts 5x5, temel çok eklemli hareketlerde 5 set x 5 tekrar prensibine dayanır. Amaç, her antrenmanda küçük artışlarla lineer güç kazanımı sağlamaktır.</p>
+                <p>Sistem varsayılan olarak Antrenman A/B arasında A-B-A-B düzeninde ilerler.</p>
+                <p>İstersen kişisel antrenman oluşturup kaydedebilir, bu kayıtları ilerleme raporuna dahil edebilirsin.</p>
+            </div>
+            <div class="info-card">
+                <h3>Nasıl Uygulanır?</h3>
+                <ul class="info-list">
+                    <li>Antrenman A: Squat, Bench Press, Barbell Row</li>
+                    <li>Antrenman B: Squat, Overhead Press, Deadlift</li>
+                    <li>Her hareket için 5x5 (Deadlift 1x5)</li>
+                    <li>Tüm setler tamamlanırsa bir sonraki antrenmanda ağırlığı artır</li>
+                    <li>Deload yüzde ile seçilirse ağırlıklar 2,5 kg adımına yuvarlanır</li>
+                    <li>Hazır programlar: StrongLifts 5x5, Starting Strength, Madcow 5x5, Texas Method</li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -300,7 +474,44 @@
     </div>
 
     <div class="screenshots-section">
-        <h2 class="section-title" style="margin-bottom: 30px;">Uygulama Görüntüleri</h2>
+        <div class="container">
+        <h2 class="section-title">Uygulama Nasıl Kullanılır?</h2>
+        <div class="usage-grid">
+            <article class="usage-card">
+                <h3>Başlangıç Adımları</h3>
+                <ul class="info-list">
+                    <li>Anasayfa'dan Antrenman A/B seç ve başlat.</li>
+                    <li>Setlerini gir, dinlenme zamanlayıcısını takip et.</li>
+                    <li>Antrenman sonunda özet ekranında süre, dinlenme ve paylaşımı gör.</li>
+                    <li>Programlar sekmesinden antrenman düzenle, yeni antrenman ekle ve sıralamayı değiştir.</li>
+                    <li>Hazır programlardan StrongLifts, Starting Strength, Madcow veya Texas Method seç.</li>
+                </ul>
+            </article>
+            <article class="usage-card">
+                <h3>Takip ve Analiz</h3>
+                <ul class="info-list">
+                    <li>İlerleme sekmesinde grafik ve istatistiklerle gelişimini takip et.</li>
+                    <li>Geçmiş sekmesinde liste ve takvim görünümünden antrenmanlarını incele.</li>
+                    <li>Yağ Oranı sekmesinde ölçüm gir ve zaman içindeki değişimi izle.</li>
+                    <li>Rozetler ve bildirimlerle hedeflerini takip et.</li>
+                    <li>Rozet ekranında kazanım tarihi ve açıklamaları görüntüle.</li>
+                </ul>
+            </article>
+            <article class="usage-card">
+                <h3>Ayarlar ve Yönetim</h3>
+                <ul class="info-list">
+                    <li>Ayarlar'dan kg/lb birimi ile dinlenme ve antrenman hatırlatıcılarını ayarla.</li>
+                    <li>Gelişmiş Ayarlar'da otomatik deload ve başarısızlık sayısı seçeneklerini yönet.</li>
+                    <li>Antrenman geçmişini temizle ile logları ve sayaçları sıfırla.</li>
+                    <li>Rozet ve bildirimleri temizle ile rozet durumlarını ve bildirim listesini sıfırla.</li>
+                    <li>Tüm ayarları sıfırla ile birim ve gelişmiş ayarları varsayılana döndür.</li>
+                    <li>Otomatik deload açıkken başarısızlık sayısına göre ağırlıklar otomatik düşer.</li>
+                </ul>
+            </article>
+        </div>
+        </div>
+
+        <h2 class="section-title screenshots-title">Uygulama Görüntüleri</h2>
         <div class="screenshots-scroll">
             <img src="https://via.placeholder.com/260x560?text=Ana+Ekran" class="screenshot-img" alt="Ana Ekran">
             <img src="https://via.placeholder.com/260x560?text=Programlar" class="screenshot-img" alt="Program Seçimi">
@@ -318,7 +529,7 @@
             <p>📧 E-Posta: <strong><a href="mailto:talhabekaroglu@gmail.com">talhabekaroglu@gmail.com</a></strong></p>
 
             <h2 id="privacy">Gizlilik Politikası (Privacy Policy)</h2>
-            <p style="color: #666; font-size: 0.85rem;">Son Güncelleme: 08.02.2026</p>
+            <p class="legal-updated">Son Güncelleme: 08.02.2026</p>
             
             <p><strong>1. Veri Gizliliği ve Güvenliği</strong><br>
             LiftLog 5x5 Pro, kişisel verilerinizi asla sunucularımızda saklamaz. Girdiğiniz antrenman kayıtları, vücut ölçümleri ve ayarlar <strong>sadece kendi cihazınızda (Local Storage)</strong> tutulur. Verileriniz tamamen sizin kontrolünüzdedir.</p>
@@ -337,6 +548,513 @@
     <footer>
         <p>&copy; 2026 Talha Bekaroğlu. LiftLog 5x5 Pro. Tüm hakları saklıdır.</p>
     </footer>
+
+    <script>
+        (function () {
+            var select = document.getElementById("languageSelect");
+            if (!select) return;
+            var languageOptionNames = {
+                tr: "Türkçe",
+                en: "English",
+                de: "Deutsch",
+                es: "Español",
+                fr: "Français",
+                ar: "العربية"
+            };
+
+            var translations = {
+                tr: {
+                    label: "Dil",
+                    options: { tr: "Türkçe", en: "English", de: "Deutsch", es: "Español", fr: "Français", ar: "العربية" },
+                    title: "LiftLog 5x5 Pro - Güç ve Hipertrofi Koçu",
+                    metaDescription: "LiftLog 5x5 Pro ile StrongLifts 5x5, Starting Strength, Madcow 5x5 ve Texas Method programlarını takip edin. İlerleme grafikleri, deload ve akıllı set zamanlayıcı ile daha güçlü antrenman yapın.",
+                    metaKeywords: "5x5, strength training, powerlifting, stronglifts, starting strength, madcow, texas method, antrenman uygulaması",
+                    ogTitle: "LiftLog 5x5 Pro - Güç ve Hipertrofi Koçu",
+                    ogDescription: "Güçlenmek, kas inşa etmek ve sınırlarını zorlamak isteyenler için kapsamlı antrenman koçu.",
+                    twitterTitle: "LiftLog 5x5 Pro",
+                    twitterDescription: "StrongLifts 5x5, Starting Strength, Madcow 5x5 ve Texas Method programları tek uygulamada.",
+                    tagline: "Güçlenmek, kas inşa etmek ve sınırlarını zorlamak isteyenler için en kapsamlı antrenman koçu.",
+                    appStoreAria: "LiftLog 5x5 Pro için App Store sayfasını aç",
+                    appStoreBadgeAlt: "App Store'dan İndirin",
+                    programsTitle: "Hangi Program Size Uygun?",
+                    programs: [
+                        ["Başlangıç", "Lineer ilerleme odaklı temel 5x5 programı.", "Kimler için: Yeni başlayan ve temel kuvvet kazanımı isteyenler.", "Süre: 8-16 hafta veya artış sürdüğü kadar.", "Not: Hareketler 5x5, Deadlift genelde 1x5 uygulanır."],
+                        ["Başlangıç", "3x5 yaklaşımıyla teknik ve kuvvet temeli kurar.", "Kimler için: Yeni başlayanlar ve sade bir başlangıç isteyenler.", "Süre: 8-12 hafta.", "Not: Haftada 3 gün, A/B günleri dönüşümlü ilerler."],
+                        ["Orta Seviye", "Orta seviye hacim + yoğunluk dengeli 3 günlük plan.", "Kimler için: Başlangıcı geçmiş, hacim ve güç isteyenler.", "Süre: 12+ hafta.", "Not: A/B + C günü ile ilerler."],
+                        ["İleri Seviye", "Hacim/Toparlanma/Yoğunluk günleriyle ilerler.", "Kimler için: Orta-ileri seviye, yoğunluk kaldırabilenler.", "Süre: 12+ hafta.", "Not: Volume/Recovery/Intensity günleri farklı yüklerle çalışılır."]
+                    ],
+                    aboutTitle: "Program Hakkında",
+                    aboutCard1Title: "StrongLifts 5x5 Nedir?",
+                    aboutCard1: [
+                        "StrongLifts 5x5, temel çok eklemli hareketlerde 5 set x 5 tekrar prensibine dayanır. Amaç, her antrenmanda küçük artışlarla lineer güç kazanımı sağlamaktır.",
+                        "Sistem varsayılan olarak Antrenman A/B arasında A-B-A-B düzeninde ilerler.",
+                        "İstersen kişisel antrenman oluşturup kaydedebilir, bu kayıtları ilerleme raporuna dahil edebilirsin."
+                    ],
+                    aboutCard2Title: "Nasıl Uygulanır?",
+                    aboutList: [
+                        "Antrenman A: Squat, Bench Press, Barbell Row",
+                        "Antrenman B: Squat, Overhead Press, Deadlift",
+                        "Her hareket için 5x5 (Deadlift 1x5)",
+                        "Tüm setler tamamlanırsa bir sonraki antrenmanda ağırlığı artır",
+                        "Deload yüzde ile seçilirse ağırlıklar 2,5 kg adımına yuvarlanır",
+                        "Hazır programlar: StrongLifts 5x5, Starting Strength, Madcow 5x5, Texas Method"
+                    ],
+                    featuresTitle: "Neden LiftLog 5x5 Pro?",
+                    features: [
+                        ["Kişisel Antrenmanlar", "Sadece hazır programlara bağlı kalmayın. Kendi hareketlerinizi ekleyin, set sayılarını değiştirin ve tamamen size özel bir plan oluşturun."],
+                        ["Otomatik Döngü & Deload", "Uygulama, A ve B antrenmanlarını otomatik sıraya koyar. Bir ağırlığı üst üste kaldıramazsanız, sistem otomatik olarak ağırlığı düşürüp (deload) sizi platodan kurtarır."],
+                        ["Akıllı Zamanlayıcı", "Set aralarında ne kadar dinleneceğinizi düşünmeyin. Otomatik sayaç, set bittiğinde başlar ve bir sonraki sete hazır olmanız için sizi uyarır."],
+                        ["Detaylı İlerleme Raporu", "Kaldırdığınız toplam ağırlıktan tahmini 1RM (Tek Tekrar Maksimum) değerinize kadar her şeyi grafiklerle analiz edin."],
+                        ["Geçmiş & Takvim", "Geçmiş antrenmanlarınızı takvim görünümünde inceleyin. Hangi gün ne çalıştığınızı ve notlarınızı asla unutmayın."],
+                        ["Vücut Analizi", "Sadece barı değil, kendinizi de takip edin. Kilo ve yağ oranı ölçümlerinizi kaydedip değişiminizi görselleştirin."]
+                    ],
+                    usageTitle: "Uygulama Nasıl Kullanılır?",
+                    usage: [
+                        ["Başlangıç Adımları", ["Anasayfa'dan Antrenman A/B seç ve başlat.", "Setlerini gir, dinlenme zamanlayıcısını takip et.", "Antrenman sonunda özet ekranında süre, dinlenme ve paylaşımı gör.", "Programlar sekmesinden antrenman düzenle, yeni antrenman ekle ve sıralamayı değiştir.", "Hazır programlardan StrongLifts, Starting Strength, Madcow veya Texas Method seç."]],
+                        ["Takip ve Analiz", ["İlerleme sekmesinde grafik ve istatistiklerle gelişimini takip et.", "Geçmiş sekmesinde liste ve takvim görünümünden antrenmanlarını incele.", "Yağ Oranı sekmesinde ölçüm gir ve zaman içindeki değişimi izle.", "Rozetler ve bildirimlerle hedeflerini takip et.", "Rozet ekranında kazanım tarihi ve açıklamaları görüntüle."]],
+                        ["Ayarlar ve Yönetim", ["Ayarlar'dan kg/lb birimi ile dinlenme ve antrenman hatırlatıcılarını ayarla.", "Gelişmiş Ayarlar'da otomatik deload ve başarısızlık sayısı seçeneklerini yönet.", "Antrenman geçmişini temizle ile logları ve sayaçları sıfırla.", "Rozet ve bildirimleri temizle ile rozet durumlarını ve bildirim listesini sıfırla.", "Tüm ayarları sıfırla ile birim ve gelişmiş ayarları varsayılana döndür.", "Otomatik deload açıkken başarısızlık sayısına göre ağırlıklar otomatik düşer."]]
+                    ],
+                    screenshotsTitle: "Uygulama Görüntüleri",
+                    screenshotAlts: ["Ana Ekran", "Program Seçimi", "Antrenman Kaydı", "İstatistikler", "Ayarlar"],
+                    contactTitle: "İletişim & Destek (Support)",
+                    contactIntro: "LiftLog 5x5 Pro ile ilgili her türlü soru, hata bildirimi veya özellik öneriniz için geliştirici ile iletişime geçebilirsiniz.",
+                    emailLabel: "E-Posta:",
+                    privacyTitle: "Gizlilik Politikası (Privacy Policy)",
+                    updatedLabel: "Son Güncelleme:",
+                    privacyHtml: [
+                        "<strong>1. Veri Gizliliği ve Güvenliği</strong><br>LiftLog 5x5 Pro, kişisel verilerinizi asla sunucularımızda saklamaz. Girdiğiniz antrenman kayıtları, vücut ölçümleri ve ayarlar <strong>sadece kendi cihazınızda (Local Storage)</strong> tutulur. Verileriniz tamamen sizin kontrolünüzdedir.",
+                        "<strong>2. İzinler ve Kullanım</strong><br>Uygulama, size antrenman günlerinizi hatırlatmak veya set arası dinlenme süreniz bittiğinde haber vermek için <strong>Bildirim İzni</strong> isteyebilir. Bu izin sadece bu amaçla kullanılır.",
+                        "<strong>3. Üçüncü Taraf Hizmetler</strong><br>Uygulama içerisinde kullanıcı davranışlarını takip eden (analytics) yazılımlar veya reklam ağları bulunmamaktadır. Tamamen reklamsız ve takipçisiz bir deneyim sunulur.",
+                        "<strong>4. İletişim</strong><br>Gizlilik politikamızla ilgili sorularınız için <a href=\"mailto:talhabekaroglu@gmail.com\">talhabekaroglu@gmail.com</a> adresinden bize ulaşabilirsiniz."
+                    ],
+                    footer: "© 2026 Talha Bekaroğlu. LiftLog 5x5 Pro. Tüm hakları saklıdır."
+                },
+                en: {
+                    label: "Language",
+                    options: { tr: "Turkish", en: "English", de: "German", es: "Spanish", fr: "French", ar: "Arabic" },
+                    title: "LiftLog 5x5 Pro - Strength and Hypertrophy Coach",
+                    metaDescription: "Track StrongLifts 5x5, Starting Strength, Madcow 5x5 and Texas Method in LiftLog 5x5 Pro. Build strength with progress charts, deload logic and smart rest timer.",
+                    metaKeywords: "5x5, strength training, powerlifting, stronglifts, starting strength, madcow, texas method, workout app",
+                    ogTitle: "LiftLog 5x5 Pro - Strength and Hypertrophy Coach",
+                    ogDescription: "A complete training coach for building strength, muscle and consistency.",
+                    twitterTitle: "LiftLog 5x5 Pro",
+                    twitterDescription: "StrongLifts 5x5, Starting Strength, Madcow 5x5 and Texas Method in one app.",
+                    tagline: "A complete training coach for people who want to build strength, muscle and push their limits.",
+                    appStoreAria: "Open the App Store page for LiftLog 5x5 Pro",
+                    appStoreBadgeAlt: "Download on the App Store",
+                    programsTitle: "Which Program Fits You?",
+                    programs: [
+                        ["Beginner", "Classic 5x5 with linear progression.", "Who it's for: New lifters focused on basic strength.", "Duration: 8-16 weeks or as long as progress continues.", "Note: Most lifts are 5x5, Deadlift is usually 1x5."],
+                        ["Beginner", "Uses a 3x5 model for technique and strength foundation.", "Who it's for: Beginners who want a simple starting plan.", "Duration: 8-12 weeks.", "Note: Trains 3 days per week with alternating A/B days."],
+                        ["Intermediate", "Balanced 3-day plan with volume and intensity.", "Who it's for: Lifters beyond novice stage wanting size and strength.", "Duration: 12+ weeks.", "Note: Progresses with A/B + C days."],
+                        ["Advanced", "Built around Volume/Recovery/Intensity days.", "Who it's for: Intermediate-advanced lifters who handle higher stress.", "Duration: 12+ weeks.", "Note: Volume/Recovery/Intensity days use different loading."]
+                    ],
+                    aboutTitle: "About the Program",
+                    aboutCard1Title: "What is StrongLifts 5x5?",
+                    aboutCard1: [
+                        "StrongLifts 5x5 is based on 5 sets x 5 reps in fundamental compound lifts. The goal is linear strength gain through small increases each session.",
+                        "By default, the system rotates Workout A and Workout B as A-B-A-B.",
+                        "You can also create custom workouts and include them in progress reports."
+                    ],
+                    aboutCard2Title: "How to Apply It",
+                    aboutList: [
+                        "Workout A: Squat, Bench Press, Barbell Row",
+                        "Workout B: Squat, Overhead Press, Deadlift",
+                        "Use 5x5 for each lift (Deadlift 1x5)",
+                        "If all sets are completed, increase weight next session",
+                        "If percentage deload is selected, weights are rounded to 2.5 kg steps",
+                        "Preset programs: StrongLifts 5x5, Starting Strength, Madcow 5x5, Texas Method"
+                    ],
+                    featuresTitle: "Why LiftLog 5x5 Pro?",
+                    features: [
+                        ["Custom Workouts", "Do not stay limited to preset plans. Add your own lifts, change sets and build a plan tailored to you."],
+                        ["Automatic Rotation & Deload", "The app alternates A and B workouts automatically. If you fail repeatedly, it applies an automatic deload."],
+                        ["Smart Rest Timer", "No need to think about rest intervals. The timer starts after each set and keeps your pace consistent."],
+                        ["Detailed Progress Reports", "Analyze everything from total lifted volume to estimated 1RM with clear charts."],
+                        ["History & Calendar", "Review your training in list and calendar views and never lose your notes."],
+                        ["Body Tracking", "Track body weight and body-fat measurements over time, not just bar weight."]
+                    ],
+                    usageTitle: "How to Use the App",
+                    usage: [
+                        ["Getting Started", ["Choose Workout A/B on Home and start.", "Log your sets and follow the rest timer.", "Check duration, rest and share options on workout summary.", "Edit workouts, add new ones and reorder from Programs tab.", "Pick from StrongLifts, Starting Strength, Madcow or Texas Method presets."]],
+                        ["Tracking & Analysis", ["Follow charts and stats on Progress tab.", "Review sessions in list and calendar views on History tab.", "Enter body-fat measurements and track changes over time.", "Use badges and notifications to stay on target.", "See earned date and descriptions in the badges screen."]],
+                        ["Settings & Management", ["Set kg/lb units, rest reminders and workout reminders in Settings.", "Manage auto-deload and failure threshold in Advanced Settings.", "Use clear history to reset logs and failure counters.", "Use clear badges/notifications to reset badge status and list.", "Use reset all settings to restore defaults.", "When auto-deload is on, weights reduce automatically based on failures."]]
+                    ],
+                    screenshotsTitle: "App Screenshots",
+                    screenshotAlts: ["Home Screen", "Program Selection", "Workout Log", "Statistics", "Settings"],
+                    contactTitle: "Contact & Support",
+                    contactIntro: "For questions, bug reports or feature requests about LiftLog 5x5 Pro, feel free to contact the developer.",
+                    emailLabel: "Email:",
+                    privacyTitle: "Privacy Policy",
+                    updatedLabel: "Last Updated:",
+                    privacyHtml: [
+                        "<strong>1. Data Privacy and Security</strong><br>LiftLog 5x5 Pro never stores your personal data on our servers. Training logs, body measurements and settings are kept <strong>only on your own device (Local Storage)</strong>.",
+                        "<strong>2. Permissions</strong><br>The app may request <strong>notification permission</strong> to remind training days or rest timer completion. This permission is used only for these purposes.",
+                        "<strong>3. Third-Party Services</strong><br>The app includes no analytics trackers and no ad networks. It provides a fully ad-free and tracker-free experience.",
+                        "<strong>4. Contact</strong><br>If you have questions about this privacy policy, contact us at <a href=\"mailto:talhabekaroglu@gmail.com\">talhabekaroglu@gmail.com</a>."
+                    ],
+                    footer: "© 2026 Talha Bekaroğlu. LiftLog 5x5 Pro. All rights reserved."
+                },
+                de: {
+                    label: "Sprache",
+                    options: { tr: "Türkisch", en: "Englisch", de: "Deutsch", es: "Spanisch", fr: "Französisch", ar: "Arabisch" },
+                    title: "LiftLog 5x5 Pro - Kraft- und Hypertrophie-Coach",
+                    metaDescription: "Verfolge StrongLifts 5x5, Starting Strength, Madcow 5x5 und Texas Method in LiftLog 5x5 Pro. Mit Fortschrittsgrafiken, Deload-Logik und intelligentem Pausentimer.",
+                    metaKeywords: "5x5, krafttraining, powerlifting, stronglifts, starting strength, madcow, texas method, trainings app",
+                    ogTitle: "LiftLog 5x5 Pro - Kraft- und Hypertrophie-Coach",
+                    ogDescription: "Ein umfassender Trainingscoach für Kraft, Muskelaufbau und Konstanz.",
+                    twitterTitle: "LiftLog 5x5 Pro",
+                    twitterDescription: "StrongLifts 5x5, Starting Strength, Madcow 5x5 und Texas Method in einer App.",
+                    tagline: "Ein kompletter Trainingscoach für alle, die stärker werden, Muskeln aufbauen und Grenzen verschieben wollen.",
+                    appStoreAria: "App-Store-Seite für LiftLog 5x5 Pro öffnen",
+                    appStoreBadgeAlt: "Im App Store laden",
+                    programsTitle: "Welches Programm passt zu dir?",
+                    programs: [
+                        ["Anfänger", "Klassisches 5x5 mit linearer Progression.", "Für wen: Neue Trainierende mit Fokus auf Grundkraft.", "Dauer: 8-16 Wochen oder solange Fortschritt anhält.", "Hinweis: Meist 5x5, Deadlift oft 1x5."],
+                        ["Anfänger", "3x5-Ansatz für Technik und Kraftbasis.", "Für wen: Einsteiger mit Wunsch nach einfachem Start.", "Dauer: 8-12 Wochen.", "Hinweis: 3 Tage pro Woche mit A/B-Wechsel."],
+                        ["Mittelstufe", "Ausgewogener 3-Tage-Plan aus Volumen und Intensität.", "Für wen: Nach der Anfängerphase, für Kraft und Muskelaufbau.", "Dauer: 12+ Wochen.", "Hinweis: Fortschritt mit A/B + C Tagen."],
+                        ["Fortgeschritten", "Aufgebaut aus Volumen/Erholung/Intensität.", "Für wen: Mittel- bis Fortgeschrittene mit höherer Belastbarkeit.", "Dauer: 12+ Wochen.", "Hinweis: Die Tage nutzen unterschiedliche Lasten."]
+                    ],
+                    aboutTitle: "Über das Programm",
+                    aboutCard1Title: "Was ist StrongLifts 5x5?",
+                    aboutCard1: [
+                        "StrongLifts 5x5 basiert auf 5 Sätzen x 5 Wiederholungen in grundlegenden Mehrgelenksübungen. Ziel ist lineare Kraftsteigerung durch kleine Erhöhungen pro Einheit.",
+                        "Standardmäßig wechselt das System zwischen Training A und B als A-B-A-B.",
+                        "Du kannst auch eigene Trainings erstellen und in Fortschrittsberichte aufnehmen."
+                    ],
+                    aboutCard2Title: "So wird es umgesetzt",
+                    aboutList: [
+                        "Training A: Kniebeuge, Bankdrücken, Langhantelrudern",
+                        "Training B: Kniebeuge, Schulterdrücken, Kreuzheben",
+                        "Für jede Übung 5x5 (Kreuzheben 1x5)",
+                        "Wenn alle Sätze geschafft sind, Gewicht in der nächsten Einheit erhöhen",
+                        "Bei prozentualem Deload wird auf 2,5-kg-Schritte gerundet",
+                        "Fertige Programme: StrongLifts 5x5, Starting Strength, Madcow 5x5, Texas Method"
+                    ],
+                    featuresTitle: "Warum LiftLog 5x5 Pro?",
+                    features: [
+                        ["Eigene Trainings", "Du musst nicht bei fertigen Plänen bleiben. Füge eigene Übungen hinzu und passe Sätze an."],
+                        ["Automatische Rotation & Deload", "Die App rotiert A- und B-Training automatisch und setzt bei wiederholtem Scheitern Deload ein."],
+                        ["Intelligenter Pausentimer", "Der Timer startet nach jedem Satz automatisch und hält dein Tempo konstant."],
+                        ["Detaillierte Fortschrittsberichte", "Analysiere Gesamtvolumen bis geschätztes 1RM mit klaren Diagrammen."],
+                        ["Verlauf & Kalender", "Prüfe deine Einheiten in Listen- und Kalenderansicht inklusive Notizen."],
+                        ["Körperanalyse", "Verfolge Körpergewicht und Körperfett im Zeitverlauf."]
+                    ],
+                    usageTitle: "So nutzt du die App",
+                    usage: [
+                        ["Erste Schritte", ["Auf der Startseite Training A/B wählen und starten.", "Sätze eintragen und Pausentimer nutzen.", "Im Abschlussscreen Dauer, Pausen und Teilen ansehen.", "Im Programme-Tab Workouts bearbeiten, hinzufügen und sortieren.", "StrongLifts, Starting Strength, Madcow oder Texas Method auswählen."]],
+                        ["Tracking & Analyse", ["Im Fortschritt-Tab Diagramme und Kennzahlen prüfen.", "Im Verlauf-Tab Listen- und Kalenderansicht nutzen.", "Körperfettwerte eintragen und Veränderungen verfolgen.", "Badges und Benachrichtigungen zur Zielverfolgung nutzen.", "Im Badges-Screen Datum und Beschreibung ansehen."]],
+                        ["Einstellungen & Verwaltung", ["In Einstellungen kg/lb, Pausen- und Trainings-Erinnerungen festlegen.", "In erweiterten Einstellungen Auto-Deload und Fehlversuch-Grenze verwalten.", "Mit Verlauf löschen Logs und Zähler zurücksetzen.", "Mit Badges/Benachrichtigungen löschen Status und Liste zurücksetzen.", "Mit Alle Einstellungen zurücksetzen auf Standard gehen.", "Bei aktivem Auto-Deload sinken Gewichte automatisch nach Fehlversuchen."]]
+                    ],
+                    screenshotsTitle: "App-Screenshots",
+                    screenshotAlts: ["Startbildschirm", "Programmauswahl", "Trainingsprotokoll", "Statistiken", "Einstellungen"],
+                    contactTitle: "Kontakt & Support",
+                    contactIntro: "Bei Fragen, Fehlerberichten oder Funktionswünschen zu LiftLog 5x5 Pro kontaktiere den Entwickler.",
+                    emailLabel: "E-Mail:",
+                    privacyTitle: "Datenschutzerklärung",
+                    updatedLabel: "Zuletzt aktualisiert:",
+                    privacyHtml: [
+                        "<strong>1. Datenschutz und Sicherheit</strong><br>LiftLog 5x5 Pro speichert keine persönlichen Daten auf unseren Servern. Trainingslogs, Körperwerte und Einstellungen bleiben <strong>nur auf deinem Gerät (Local Storage)</strong>.",
+                        "<strong>2. Berechtigungen</strong><br>Die App kann <strong>Benachrichtigungsberechtigung</strong> anfordern, um Trainingstage oder Pausenende zu melden.",
+                        "<strong>3. Dienste Dritter</strong><br>Die App enthält keine Analytics-Tracker und keine Werbenetzwerke.",
+                        "<strong>4. Kontakt</strong><br>Fragen zur Datenschutzerklärung: <a href=\"mailto:talhabekaroglu@gmail.com\">talhabekaroglu@gmail.com</a>."
+                    ],
+                    footer: "© 2026 Talha Bekaroğlu. LiftLog 5x5 Pro. Alle Rechte vorbehalten."
+                },
+                es: {
+                    label: "Idioma",
+                    options: { tr: "Turco", en: "Inglés", de: "Alemán", es: "Español", fr: "Francés", ar: "Árabe" },
+                    title: "LiftLog 5x5 Pro - Coach de Fuerza e Hipertrofia",
+                    metaDescription: "Sigue StrongLifts 5x5, Starting Strength, Madcow 5x5 y Texas Method en LiftLog 5x5 Pro. Mejora con gráficos, deload automático y temporizador inteligente.",
+                    metaKeywords: "5x5, entrenamiento de fuerza, powerlifting, stronglifts, starting strength, madcow, texas method, app de entrenamiento",
+                    ogTitle: "LiftLog 5x5 Pro - Coach de Fuerza e Hipertrofia",
+                    ogDescription: "Un coach completo para ganar fuerza, músculo y constancia.",
+                    twitterTitle: "LiftLog 5x5 Pro",
+                    twitterDescription: "StrongLifts 5x5, Starting Strength, Madcow 5x5 y Texas Method en una sola app.",
+                    tagline: "Un coach completo para quienes quieren ganar fuerza, músculo y superar sus límites.",
+                    appStoreAria: "Abrir la página de App Store de LiftLog 5x5 Pro",
+                    appStoreBadgeAlt: "Descargar en App Store",
+                    programsTitle: "¿Qué programa es para ti?",
+                    programs: [
+                        ["Principiante", "Programa 5x5 clásico con progresión lineal.", "Para quién: Personas nuevas enfocadas en fuerza base.", "Duración: 8-16 semanas o mientras haya progreso.", "Nota: La mayoría 5x5, Deadlift suele ser 1x5."],
+                        ["Principiante", "Enfoque 3x5 para técnica y base de fuerza.", "Para quién: Principiantes que prefieren una rutina simple.", "Duración: 8-12 semanas.", "Nota: 3 días por semana con rotación A/B."],
+                        ["Intermedio", "Plan de 3 días equilibrado entre volumen e intensidad.", "Para quién: Quienes superaron nivel inicial y buscan fuerza y masa.", "Duración: 12+ semanas.", "Nota: Progresa con días A/B + C."],
+                        ["Avanzado", "Basado en días de Volumen/Recuperación/Intensidad.", "Para quién: Nivel intermedio-avanzado con alta tolerancia.", "Duración: 12+ semanas.", "Nota: Cada día usa cargas diferentes."]
+                    ],
+                    aboutTitle: "Sobre el Programa",
+                    aboutCard1Title: "¿Qué es StrongLifts 5x5?",
+                    aboutCard1: [
+                        "StrongLifts 5x5 se basa en 5 series x 5 repeticiones en ejercicios compuestos. El objetivo es progresión lineal con aumentos pequeños en cada sesión.",
+                        "Por defecto, el sistema alterna Entrenamiento A y B: A-B-A-B.",
+                        "También puedes crear entrenamientos personalizados y añadirlos al reporte de progreso."
+                    ],
+                    aboutCard2Title: "Cómo Aplicarlo",
+                    aboutList: [
+                        "Entrenamiento A: Sentadilla, Press banca, Remo con barra",
+                        "Entrenamiento B: Sentadilla, Press militar, Peso muerto",
+                        "Usa 5x5 en cada ejercicio (Peso muerto 1x5)",
+                        "Si completas todas las series, sube el peso en la próxima sesión",
+                        "Con deload por porcentaje, el peso se redondea en pasos de 2,5 kg",
+                        "Programas predefinidos: StrongLifts 5x5, Starting Strength, Madcow 5x5, Texas Method"
+                    ],
+                    featuresTitle: "¿Por qué LiftLog 5x5 Pro?",
+                    features: [
+                        ["Entrenamientos Personalizados", "No te limites a programas prefijados. Agrega ejercicios y ajusta series a tu medida."],
+                        ["Rotación y Deload Automáticos", "La app alterna A y B automáticamente y aplica deload si fallas repetidamente."],
+                        ["Temporizador Inteligente", "El temporizador inicia al terminar cada serie para mantener ritmo constante."],
+                        ["Reporte de Progreso Detallado", "Analiza volumen total y 1RM estimado con gráficos claros."],
+                        ["Historial y Calendario", "Revisa tus entrenamientos en vista de lista y calendario con tus notas."],
+                        ["Análisis Corporal", "Registra peso y grasa corporal a lo largo del tiempo."]
+                    ],
+                    usageTitle: "Cómo Usar la App",
+                    usage: [
+                        ["Primeros Pasos", ["Elige Entrenamiento A/B en Inicio y comienza.", "Registra tus series y sigue el temporizador.", "Al final mira duración, descanso y opciones de compartir.", "En Programas puedes editar, crear y reordenar entrenamientos.", "Elige StrongLifts, Starting Strength, Madcow o Texas Method."]],
+                        ["Seguimiento y Análisis", ["Consulta gráficos y estadísticas en Progreso.", "Revisa sesiones en lista y calendario en Historial.", "Registra grasa corporal y sigue su evolución.", "Usa insignias y notificaciones para mantener objetivos.", "Mira fecha y detalle de cada insignia obtenida."]],
+                        ["Ajustes y Gestión", ["Configura kg/lb y recordatorios en Ajustes.", "Gestiona auto-deload y límite de fallos en Ajustes avanzados.", "Borrar historial reinicia registros y contadores.", "Borrar insignias/notificaciones reinicia esos estados.", "Restablecer ajustes devuelve todo a valores por defecto.", "Con auto-deload activo, el peso baja según fallos."]]
+                    ],
+                    screenshotsTitle: "Capturas de la App",
+                    screenshotAlts: ["Pantalla Principal", "Selección de Programa", "Registro de Entrenamiento", "Estadísticas", "Ajustes"],
+                    contactTitle: "Contacto y Soporte",
+                    contactIntro: "Para dudas, reportes de errores o sugerencias sobre LiftLog 5x5 Pro, contacta al desarrollador.",
+                    emailLabel: "Correo:",
+                    privacyTitle: "Política de Privacidad",
+                    updatedLabel: "Última actualización:",
+                    privacyHtml: [
+                        "<strong>1. Privacidad y Seguridad</strong><br>LiftLog 5x5 Pro no guarda datos personales en servidores. Tus registros y ajustes se guardan <strong>solo en tu dispositivo (Local Storage)</strong>.",
+                        "<strong>2. Permisos</strong><br>La app puede solicitar <strong>permiso de notificaciones</strong> para recordatorios de entrenamiento y fin de descanso.",
+                        "<strong>3. Servicios de Terceros</strong><br>La app no incluye rastreadores de analítica ni redes de anuncios.",
+                        "<strong>4. Contacto</strong><br>Para dudas sobre privacidad: <a href=\"mailto:talhabekaroglu@gmail.com\">talhabekaroglu@gmail.com</a>."
+                    ],
+                    footer: "© 2026 Talha Bekaroğlu. LiftLog 5x5 Pro. Todos los derechos reservados."
+                },
+                fr: {
+                    label: "Langue",
+                    options: { tr: "Turc", en: "Anglais", de: "Allemand", es: "Espagnol", fr: "Français", ar: "Arabe" },
+                    title: "LiftLog 5x5 Pro - Coach Force et Hypertrophie",
+                    metaDescription: "Suivez StrongLifts 5x5, Starting Strength, Madcow 5x5 et Texas Method avec LiftLog 5x5 Pro. Graphiques, deload automatique et minuteur intelligent.",
+                    metaKeywords: "5x5, entrainement force, powerlifting, stronglifts, starting strength, madcow, texas method, application fitness",
+                    ogTitle: "LiftLog 5x5 Pro - Coach Force et Hypertrophie",
+                    ogDescription: "Un coach complet pour progresser en force, en muscle et en régularité.",
+                    twitterTitle: "LiftLog 5x5 Pro",
+                    twitterDescription: "StrongLifts 5x5, Starting Strength, Madcow 5x5 et Texas Method dans une seule application.",
+                    tagline: "Un coach complet pour celles et ceux qui veulent gagner en force, en muscle et dépasser leurs limites.",
+                    appStoreAria: "Ouvrir la page App Store de LiftLog 5x5 Pro",
+                    appStoreBadgeAlt: "Télécharger sur l’App Store",
+                    programsTitle: "Quel programme vous convient ?",
+                    programs: [
+                        ["Débutant", "Programme 5x5 classique en progression linéaire.", "Pour qui : Débutants cherchant une base solide de force.", "Durée : 8-16 semaines ou tant que la progression continue.", "Note : La plupart des mouvements en 5x5, Deadlift souvent 1x5."],
+                        ["Débutant", "Approche 3x5 pour technique et base de force.", "Pour qui : Débutants voulant un plan simple.", "Durée : 8-12 semaines.", "Note : 3 séances par semaine avec alternance A/B."],
+                        ["Intermédiaire", "Plan 3 jours équilibré entre volume et intensité.", "Pour qui : Niveau intermédiaire visant force et masse.", "Durée : 12+ semaines.", "Note : Progression sur journées A/B + C."],
+                        ["Avancé", "Basé sur des journées Volume/Récupération/Intensité.", "Pour qui : Intermédiaires-avancés tolérant une charge élevée.", "Durée : 12+ semaines.", "Note : Charges différentes selon les journées."]
+                    ],
+                    aboutTitle: "À propos du Programme",
+                    aboutCard1Title: "Qu’est-ce que StrongLifts 5x5 ?",
+                    aboutCard1: [
+                        "StrongLifts 5x5 repose sur 5 séries x 5 répétitions sur les mouvements composés. L’objectif est une progression linéaire avec de petites hausses à chaque séance.",
+                        "Par défaut, le système alterne entraînement A et B : A-B-A-B.",
+                        "Vous pouvez aussi créer des entraînements personnalisés et les inclure dans le suivi."
+                    ],
+                    aboutCard2Title: "Comment l’appliquer",
+                    aboutList: [
+                        "Entraînement A : Squat, Développé couché, Rowing barre",
+                        "Entraînement B : Squat, Développé militaire, Soulevé de terre",
+                        "Format 5x5 pour chaque exercice (Soulevé de terre 1x5)",
+                        "Si toutes les séries sont validées, augmentez la charge séance suivante",
+                        "Avec deload en pourcentage, les charges sont arrondies par pas de 2,5 kg",
+                        "Programmes prêts : StrongLifts 5x5, Starting Strength, Madcow 5x5, Texas Method"
+                    ],
+                    featuresTitle: "Pourquoi LiftLog 5x5 Pro ?",
+                    features: [
+                        ["Entraînements Personnalisés", "Ajoutez vos propres exercices et ajustez vos séries."],
+                        ["Rotation et Deload Automatiques", "L’app alterne A/B automatiquement et applique un deload en cas d’échecs répétés."],
+                        ["Minuteur Intelligent", "Le minuteur démarre après chaque série pour garder le bon rythme."],
+                        ["Rapport de Progression Détaillé", "Analysez volume total et 1RM estimé avec des graphiques clairs."],
+                        ["Historique et Calendrier", "Consultez vos séances en liste et calendrier avec vos notes."],
+                        ["Analyse Corporelle", "Suivez poids et masse grasse dans le temps."]
+                    ],
+                    usageTitle: "Comment Utiliser l’App",
+                    usage: [
+                        ["Démarrage", ["Choisissez entraînement A/B sur l’accueil et démarrez.", "Saisissez vos séries et suivez le minuteur.", "Consultez durée, repos et partage dans le résumé.", "Dans Programmes, modifiez, ajoutez et réordonnez les séances.", "Choisissez StrongLifts, Starting Strength, Madcow ou Texas Method."]],
+                        ["Suivi et Analyse", ["Suivez graphiques et statistiques dans l’onglet Progression.", "Consultez l’historique en liste et calendrier.", "Ajoutez des mesures de masse grasse et suivez l’évolution.", "Utilisez badges et notifications pour rester régulier.", "Consultez date et détail des badges obtenus."]],
+                        ["Paramètres et Gestion", ["Réglez unité kg/lb et rappels dans Paramètres.", "Gérez auto-deload et seuil d’échec dans Paramètres avancés.", "Effacer l’historique réinitialise logs et compteurs.", "Effacer badges/notifications réinitialise ces états.", "Réinitialiser tous les paramètres restaure les valeurs par défaut.", "Avec auto-deload actif, les charges baissent selon les échecs."]]
+                    ],
+                    screenshotsTitle: "Captures d’écran",
+                    screenshotAlts: ["Écran d’accueil", "Sélection du programme", "Journal d’entraînement", "Statistiques", "Paramètres"],
+                    contactTitle: "Contact et Support",
+                    contactIntro: "Pour toute question, bug ou suggestion sur LiftLog 5x5 Pro, contactez le développeur.",
+                    emailLabel: "E-mail :",
+                    privacyTitle: "Politique de Confidentialité",
+                    updatedLabel: "Dernière mise à jour :",
+                    privacyHtml: [
+                        "<strong>1. Confidentialité et sécurité</strong><br>LiftLog 5x5 Pro ne stocke aucune donnée personnelle sur nos serveurs. Vos données sont conservées <strong>uniquement sur votre appareil (Local Storage)</strong>.",
+                        "<strong>2. Autorisations</strong><br>L’app peut demander <strong>l’autorisation de notification</strong> pour les rappels d’entraînement et de repos.",
+                        "<strong>3. Services tiers</strong><br>Aucun tracker analytique ni réseau publicitaire n’est intégré.",
+                        "<strong>4. Contact</strong><br>Pour toute question de confidentialité : <a href=\"mailto:talhabekaroglu@gmail.com\">talhabekaroglu@gmail.com</a>."
+                    ],
+                    footer: "© 2026 Talha Bekaroğlu. LiftLog 5x5 Pro. Tous droits réservés."
+                },
+                ar: {
+                    label: "اللغة",
+                    options: { tr: "التركية", en: "الإنجليزية", de: "الألمانية", es: "الإسبانية", fr: "الفرنسية", ar: "العربية" },
+                    title: "LiftLog 5x5 Pro - مدرب القوة وتضخم العضلات",
+                    metaDescription: "تابع برامج StrongLifts 5x5 وStarting Strength وMadcow 5x5 وTexas Method داخل LiftLog 5x5 Pro مع الرسوم البيانية وخفض الأوزان التلقائي ومؤقت الراحة الذكي.",
+                    metaKeywords: "5x5, تدريب القوة, باورلفتنغ, stronglifts, starting strength, madcow, texas method, تطبيق تدريب",
+                    ogTitle: "LiftLog 5x5 Pro - مدرب القوة وتضخم العضلات",
+                    ogDescription: "مدرب تدريبي شامل لبناء القوة والعضلات والاستمرارية.",
+                    twitterTitle: "LiftLog 5x5 Pro",
+                    twitterDescription: "StrongLifts 5x5 وStarting Strength وMadcow 5x5 وTexas Method في تطبيق واحد.",
+                    tagline: "مدرب شامل لمن يريد بناء القوة والعضلات وتجاوز الحدود.",
+                    appStoreAria: "افتح صفحة LiftLog 5x5 Pro في App Store",
+                    appStoreBadgeAlt: "حمّل من App Store",
+                    programsTitle: "أي برنامج يناسبك؟",
+                    programs: [
+                        ["مبتدئ", "برنامج 5x5 كلاسيكي مع تقدم خطي.", "لمن يناسب: المبتدئون الذين يريدون أساس قوة قوي.", "المدة: 8-16 أسبوعًا أو طالما استمر التقدم.", "ملاحظة: أغلب التمارين 5x5 والديدلفت غالبًا 1x5."],
+                        ["مبتدئ", "منهج 3x5 لبناء التقنية والقوة الأساسية.", "لمن يناسب: من يريد بداية بسيطة وواضحة.", "المدة: 8-12 أسبوعًا.", "ملاحظة: 3 أيام أسبوعيًا مع تناوب A/B."],
+                        ["متوسط", "خطة 3 أيام متوازنة بين الحجم والشدة.", "لمن يناسب: من تجاوز مرحلة المبتدئ ويريد قوة وكتلة.", "المدة: 12+ أسبوعًا.", "ملاحظة: التقدم عبر أيام A/B + C."],
+                        ["متقدم", "يعتمد على أيام الحجم/الاستشفاء/الشدة.", "لمن يناسب: المتوسط إلى المتقدم القادر على شدة أعلى.", "المدة: 12+ أسبوعًا.", "ملاحظة: كل يوم يستخدم أحمالًا مختلفة."]
+                    ],
+                    aboutTitle: "حول البرنامج",
+                    aboutCard1Title: "ما هو StrongLifts 5x5؟",
+                    aboutCard1: [
+                        "يعتمد StrongLifts 5x5 على 5 مجموعات × 5 تكرارات في التمارين المركبة الأساسية، بهدف زيادة القوة تدريجيًا بزيادات صغيرة في كل حصة.",
+                        "افتراضيًا يتناوب النظام بين تمرين A وB بهذا الشكل: A-B-A-B.",
+                        "يمكنك إنشاء تمارين مخصصة وإضافتها إلى تقارير التقدم."
+                    ],
+                    aboutCard2Title: "كيف تطبقه",
+                    aboutList: [
+                        "تمرين A: سكوات، بنش برس، باربل رو",
+                        "تمرين B: سكوات، أوفرهيد برس، ديدلفت",
+                        "لكل تمرين 5x5 (الديدلفت 1x5)",
+                        "إذا أكملت كل المجموعات، زد الوزن في الحصة التالية",
+                        "عند اختيار خفض نسبي، تُقرب الأوزان إلى خطوات 2.5 كجم",
+                        "البرامج الجاهزة: StrongLifts 5x5 وStarting Strength وMadcow 5x5 وTexas Method"
+                    ],
+                    featuresTitle: "لماذا LiftLog 5x5 Pro؟",
+                    features: [
+                        ["تمارين مخصصة", "لا تلتزم فقط بالبرامج الجاهزة، أضف تمارينك وعدّل المجموعات حسب هدفك."],
+                        ["تناوب وخفض تلقائي", "التطبيق يتناوب تلقائيًا بين A وB ويطبق خفضًا تلقائيًا عند تكرار الفشل."],
+                        ["مؤقت راحة ذكي", "يبدأ المؤقت بعد كل مجموعة ليساعدك على الحفاظ على الإيقاع المناسب."],
+                        ["تقارير تقدم مفصلة", "حلّل كل شيء من الحجم الكلي إلى 1RM التقديري عبر رسوم واضحة."],
+                        ["السجل والتقويم", "راجع حصصك في عرض القائمة والتقويم مع الملاحظات."],
+                        ["تحليل الجسم", "تابع الوزن ونسبة الدهون مع الزمن."]
+                    ],
+                    usageTitle: "كيفية استخدام التطبيق",
+                    usage: [
+                        ["خطوات البداية", ["اختر تمرين A/B من الصفحة الرئيسية وابدأ.", "سجّل مجموعاتك واتبع مؤقت الراحة.", "بعد التمرين راجع المدة والراحة وخيارات المشاركة.", "من تبويب البرامج عدّل التمارين وأضف الجديد وغيّر الترتيب.", "اختر من البرامج الجاهزة: StrongLifts أو Starting Strength أو Madcow أو Texas Method."]],
+                        ["المتابعة والتحليل", ["تابع الرسوم والإحصاءات من تبويب التقدم.", "راجع التمارين السابقة من عرض القائمة والتقويم.", "أدخل قياسات الدهون وتابع تغيرها عبر الوقت.", "استخدم الشارات والتنبيهات للالتزام بالأهداف.", "اعرض تاريخ الحصول على الشارة ووصفها."]],
+                        ["الإعدادات والإدارة", ["من الإعدادات اختر الوحدة kg/lb واضبط تذكيرات الراحة والتمرين.", "من الإعدادات المتقدمة أدِر الخفض التلقائي وعدد مرات الفشل.", "تنظيف السجل يعيد ضبط السجلات والعدادات.", "تنظيف الشارات والتنبيهات يعيد ضبط حالتها.", "إعادة ضبط كل الإعدادات تعيد القيم الافتراضية.", "عند تفعيل الخفض التلقائي تنخفض الأوزان حسب عدد الإخفاقات."]]
+                    ],
+                    screenshotsTitle: "صور التطبيق",
+                    screenshotAlts: ["الشاشة الرئيسية", "اختيار البرنامج", "سجل التمرين", "الإحصائيات", "الإعدادات"],
+                    contactTitle: "التواصل والدعم",
+                    contactIntro: "لأي سؤال أو بلاغ خطأ أو اقتراح ميزة حول LiftLog 5x5 Pro يمكنك التواصل مع المطوّر.",
+                    emailLabel: "البريد الإلكتروني:",
+                    privacyTitle: "سياسة الخصوصية",
+                    updatedLabel: "آخر تحديث:",
+                    privacyHtml: [
+                        "<strong>1. خصوصية البيانات وأمانها</strong><br>لا يقوم LiftLog 5x5 Pro بتخزين بياناتك الشخصية على الخوادم. يتم حفظ البيانات <strong>فقط على جهازك (Local Storage)</strong>.",
+                        "<strong>2. الأذونات</strong><br>قد يطلب التطبيق <strong>إذن الإشعارات</strong> لتذكيرك بأيام التمرين أو انتهاء وقت الراحة.",
+                        "<strong>3. خدمات الطرف الثالث</strong><br>لا يحتوي التطبيق على أدوات تتبع تحليلية أو شبكات إعلانية.",
+                        "<strong>4. التواصل</strong><br>للاستفسار عن سياسة الخصوصية: <a href=\"mailto:talhabekaroglu@gmail.com\">talhabekaroglu@gmail.com</a>."
+                    ],
+                    footer: "© 2026 Talha Bekaroğlu. LiftLog 5x5 Pro. جميع الحقوق محفوظة."
+                }
+            };
+
+            function setMeta(langData) {
+                document.title = langData.title;
+                document.querySelector('meta[name="description"]').setAttribute("content", langData.metaDescription);
+                document.querySelector('meta[name="keywords"]').setAttribute("content", langData.metaKeywords);
+                document.querySelector('meta[property="og:title"]').setAttribute("content", langData.ogTitle);
+                document.querySelector('meta[property="og:description"]').setAttribute("content", langData.ogDescription);
+                document.querySelector('meta[property="twitter:title"]').setAttribute("content", langData.twitterTitle);
+                document.querySelector('meta[property="twitter:description"]').setAttribute("content", langData.twitterDescription);
+            }
+
+            function applyLanguage(lang) {
+                var t = translations[lang] || translations.tr;
+                document.documentElement.lang = lang;
+                document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+                setMeta(t);
+
+                document.querySelector('.language-picker label').textContent = t.label;
+                Array.from(select.options).forEach(function (opt) {
+                    opt.textContent = languageOptionNames[opt.value] || opt.value;
+                });
+                select.setAttribute("aria-label", t.label);
+
+                document.querySelector(".tagline").textContent = t.tagline;
+                document.querySelector(".app-store-btn").setAttribute("aria-label", t.appStoreAria);
+                document.querySelector(".app-store-btn img").setAttribute("alt", t.appStoreBadgeAlt);
+
+                document.querySelector(".programs-section .section-title").textContent = t.programsTitle;
+                document.querySelectorAll(".program-card").forEach(function (card, i) {
+                    var row = t.programs[i];
+                    card.querySelector(".program-tag").textContent = row[0];
+                    var p = card.querySelectorAll("p");
+                    p[0].textContent = row[1];
+                    p[1].textContent = row[2];
+                    p[2].textContent = row[3];
+                    p[3].textContent = row[4];
+                });
+
+                var infoCards = document.querySelectorAll(".info-card");
+                document.querySelector(".info-section .section-title").textContent = t.aboutTitle;
+                infoCards[0].querySelector("h3").textContent = t.aboutCard1Title;
+                infoCards[0].querySelectorAll("p").forEach(function (el, i) {
+                    el.textContent = t.aboutCard1[i];
+                });
+                infoCards[1].querySelector("h3").textContent = t.aboutCard2Title;
+                infoCards[1].querySelectorAll("li").forEach(function (el, i) {
+                    el.textContent = t.aboutList[i];
+                });
+
+                document.querySelector(".features-section .section-title").textContent = t.featuresTitle;
+                document.querySelectorAll(".feature-item").forEach(function (item, i) {
+                    item.querySelector("h4").textContent = t.features[i][0];
+                    item.querySelector("p").textContent = t.features[i][1];
+                });
+
+                var usageWrap = document.querySelector(".screenshots-section .container");
+                usageWrap.querySelector(".section-title").textContent = t.usageTitle;
+                usageWrap.querySelectorAll(".usage-card").forEach(function (card, i) {
+                    card.querySelector("h3").textContent = t.usage[i][0];
+                    card.querySelectorAll("li").forEach(function (li, j) {
+                        li.textContent = t.usage[i][1][j];
+                    });
+                });
+
+                document.querySelector(".screenshots-title").textContent = t.screenshotsTitle;
+                document.querySelectorAll(".screenshot-img").forEach(function (img, i) {
+                    img.setAttribute("alt", t.screenshotAlts[i]);
+                });
+
+                document.getElementById("contact").textContent = t.contactTitle;
+                document.getElementById("privacy").textContent = t.privacyTitle;
+                var legalParagraphs = document.querySelectorAll(".legal-content p");
+                legalParagraphs[0].textContent = t.contactIntro;
+                legalParagraphs[1].innerHTML = "📧 " + t.emailLabel + " <strong><a href=\"mailto:talhabekaroglu@gmail.com\">talhabekaroglu@gmail.com</a></strong>";
+                legalParagraphs[2].textContent = t.updatedLabel + " 08.02.2026";
+                legalParagraphs[3].innerHTML = t.privacyHtml[0];
+                legalParagraphs[4].innerHTML = t.privacyHtml[1];
+                legalParagraphs[5].innerHTML = t.privacyHtml[2];
+                legalParagraphs[6].innerHTML = t.privacyHtml[3];
+
+                document.querySelector("footer p").textContent = t.footer;
+            }
+
+            var savedLang = localStorage.getItem("appLanguage") || "tr";
+            if (!translations[savedLang]) savedLang = "tr";
+            select.value = savedLang;
+            applyLanguage(savedLang);
+
+            select.addEventListener("change", function (event) {
+                var lang = event.target.value;
+                localStorage.setItem("appLanguage", lang);
+                applyLanguage(lang);
+            });
+        })();
+    </script>
 
 </body>
 </html>
