@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LiftLog 5x5 Pro - Güç Antrenmanı Koçu</title>
+    <title>LiftLog 5x5 Pro - Güç ve Hipertrofi Koçu</title>
     <style>
-        /* APPLE TARZI MODERN TASARIM */
+        /* GENEL AYARLAR */
         :root {
-            --primary-color: #007AFF;
-            --bg-color: #fbfbfd;
+            --primary-color: #007AFF; /* Apple Mavisi */
+            --bg-color: #f5f5f7;
             --text-color: #1d1d1f;
             --card-bg: #ffffff;
-            --secondary-text: #86868b;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -19,18 +18,18 @@
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.5;
+            line-height: 1.6;
         }
         .container {
-            max-width: 980px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
 
-        /* HERO ALANI */
+        /* HERO BÖLÜMÜ (Ana Ekran) */
         header {
             text-align: center;
-            padding: 80px 20px 40px;
+            padding: 80px 20px 60px;
             background-color: white;
             border-bottom: 1px solid #e5e5e5;
         }
@@ -38,25 +37,24 @@
             width: 128px;
             height: 128px;
             border-radius: 28px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             margin-bottom: 24px;
             background-color: #f0f0f0; 
             object-fit: cover;
         }
         h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin: 10px 0;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
         .tagline {
-            font-size: 1.4rem;
-            color: var(--secondary-text);
+            font-size: 1.3rem;
+            color: #86868b;
             margin-bottom: 30px;
-            max-width: 700px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            font-weight: 400;
         }
         .app-store-btn {
             display: inline-block;
@@ -64,128 +62,111 @@
             transition: transform 0.2s;
         }
         .app-store-btn:hover {
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
 
-        /* PROGRAM BADGE'LERİ */
-        .supported-programs {
-            margin-top: 40px;
+        /* PROGRAMLAR BÖLÜMÜ (YENİ) */
+        .programs-section {
+            text-align: center;
+            padding: 40px 0;
         }
-        .program-title {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #888;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        .badges-wrapper {
+        .program-badges {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
+            margin-top: 20px;
         }
         .badge {
-            background-color: #eff6ff;
+            background-color: #edf2fa;
             color: var(--primary-color);
             padding: 8px 16px;
             border-radius: 20px;
             font-weight: 600;
-            font-size: 0.9rem;
-            border: 1px solid rgba(0,122,255,0.1);
+            font-size: 0.95rem;
         }
 
-        /* ÖZELLİKLER IZGARASI */
-        .features-section {
-            padding: 60px 0;
-        }
+        /* ÖZELLİKLER GRID */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 40px 0;
         }
         .feature-card {
             background: var(--card-bg);
             padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border-radius: 18px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             transition: transform 0.2s;
-            border: 1px solid rgba(0,0,0,0.03);
         }
         .feature-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
         }
-        .icon {
-            font-size: 2.2rem;
+        .feature-icon {
+            font-size: 2rem;
             margin-bottom: 15px;
             display: block;
         }
         .feature-card h3 {
             margin: 0 0 10px 0;
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-weight: 700;
         }
         .feature-card p {
-            color: #555;
+            color: #666;
             margin: 0;
             font-size: 0.95rem;
-            line-height: 1.6;
         }
 
         /* EKRAN GÖRÜNTÜLERİ */
-        .screenshots-section {
-            padding: 40px 0 80px;
+        .screenshots-container {
+            padding: 40px 0;
             text-align: center;
-            background-color: #fff;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
         }
         .screenshots-scroll {
-            display: flex;
             overflow-x: auto;
-            gap: 20px;
-            padding: 20px 20px 40px;
-            scroll-snap-type: x mandatory;
+            white-space: nowrap;
+            padding-bottom: 20px;
             -webkit-overflow-scrolling: touch;
-            justify-content: flex-start; /* Az resim varsa ortalamak için center yapılabilir */
         }
         .screenshot-img {
-            width: 250px;
+            width: 240px;
             height: auto;
             border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border: 6px solid #fff;
-            flex-shrink: 0;
-            scroll-snap-align: center;
+            margin: 0 15px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+            border: 4px solid #fff;
+            display: inline-block;
         }
 
-        /* YASAL & İLETİŞİM */
+        /* YASAL ALANLAR */
         .legal-section {
+            background-color: white;
             padding: 60px 20px;
-            background-color: var(--bg-color);
+            margin-top: 60px;
+            border-top: 1px solid #e5e5e5;
         }
         .legal-content {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
         }
         h2 {
-            font-size: 1.6rem;
-            margin-top: 40px;
-            border-bottom: 1px solid #e5e5e5;
-            padding-bottom: 10px;
+            font-size: 1.8rem;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #1d1d1f;
         }
-        .legal-content p {
-            color: #444;
-            font-size: 0.95rem;
+        .legal-content h3 {
+            font-size: 1.2rem;
+            margin-top: 25px;
         }
         
         footer {
             text-align: center;
             padding: 40px;
-            font-size: 0.85rem;
-            color: #999;
+            font-size: 0.9rem;
+            color: #86868b;
             background-color: white;
-            border-top: 1px solid #eee;
         }
         a { color: var(--primary-color); text-decoration: none; }
         a:hover { text-decoration: underline; }
@@ -194,123 +175,109 @@
 <body>
 
     <header>
-        <img src="appIcon.jpeg" alt="LiftLog 5x5 Pro" class="app-icon">
-        
+        <img src="appIcon.jpeg" alt="LiftLog 5x5 Pro Icon" class="app-icon">
         <h1>LiftLog 5x5 Pro</h1>
-        <p class="tagline">5x5 antrenmanları, A/B döngüleri ve kişiselleştirilmiş güç programları ile sınırlarını zorla.</p>
+        <p class="tagline">Lineer ilerleme, 5x5 sistemi ve gelişmiş raporlama ile gücünüzü katlayın.</p>
         
         <a href="#" class="app-store-btn">
             <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/tr-tr?size=250x83" alt="App Store'dan İndirin" style="width: 100%;">
         </a>
 
-        <div class="supported-programs">
-            <div class="program-title">İçindeki Hazır Programlar</div>
-            <div class="badges-wrapper">
+        <div class="programs-section">
+            <p style="color: #666; margin-bottom: 10px; font-weight: 500;">İçindeki Hazır Programlar:</p>
+            <div class="program-badges">
                 <span class="badge">StrongLifts 5x5</span>
-                <span class="badge">Starting Strength</span>
+                <span class="badge">Starting Strength (3x5)</span>
                 <span class="badge">Madcow 5x5</span>
                 <span class="badge">Texas Method</span>
             </div>
         </div>
     </header>
 
-    <div class="container features-section">
+    <div class="container">
+        
         <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🏋️‍♂️</span>
+                <h3>Akıllı Antrenman Takibi</h3>
+                <p>Varsayılan A/B döngüsü ile antrenmanlarını otomatik sıraya koyar. Squat, Bench, Deadlift, OHP ve Row hareketlerini kolayca logla.</p>
+            </div>
             
             <div class="feature-card">
-                <span class="icon">🔄</span>
-                <h3>Otomatik A/B Döngüsü</h3>
-                <p>Squat, Bench/Overhead, Row/Deadlift düzenini otomatik yönetir. Hangi gün hangi hareketi yapacağını düşünmene gerek kalmaz.</p>
+                <span class="feature-icon">📉</span>
+                <h3>Otomatik Deload</h3>
+                <p>Başarısızlık sayılarını takip eder. Plato dönemine girdiğinde ağırlıkları otomatik olarak hesaplayıp düşürür.</p>
             </div>
 
             <div class="feature-card">
-                <span class="icon">✏️</span>
-                <h3>Kişisel Antrenmanlar</h3>
-                <p>Sadece hazır programlara bağlı kalma. Kendi antrenmanlarını oluştur, hareketleri düzenle ve sıralamayı istediğin gibi değiştir.</p>
+                <span class="feature-icon">📊</span>
+                <h3>Gelişmiş İlerleme Raporu</h3>
+                <p>Kaldırdığın ağırlıkların zaman içindeki artışını detaylı grafiklerle ve istatistiklerle analiz et.</p>
             </div>
 
             <div class="feature-card">
-                <span class="icon">📉</span>
-                <h3>Akıllı Deload & Başarısızlık</h3>
-                <p>Bir ağırlığı üst üste kaldıramadığında sistem bunu algılar. Otomatik deload (ağırlık düşürme) ile platoları aşmanı sağlar.</p>
+                <span class="feature-icon">⏱️</span>
+                <h3>Dinlenme Zamanlayıcısı</h3>
+                <p>Set aralarında ne kadar dinleneceğini düşünme. Otomatik sayaç ile bir sonraki sete tam zamanında hazırlan.</p>
             </div>
 
             <div class="feature-card">
-                <span class="icon">⏱️</span>
-                <h3>Set Takibi & Zamanlayıcı</h3>
-                <p>Setlerini, tekrarlarını ve ağırlıklarını kolayca gir. Otomatik dinlenme sayacı ile setler arası süreni optimize et.</p>
+                <span class="feature-icon">📅</span>
+                <h3>Geçmiş & Takvim</h3>
+                <p>Tüm antrenmanlarını liste veya takvim görünümünde incele. Hangi gün ne çalıştığını asla unutma.</p>
             </div>
 
             <div class="feature-card">
-                <span class="icon">📊</span>
-                <h3>İlerleme & Geçmiş</h3>
-                <p>Detaylı grafiklerle güç artışını izle. Geçmiş antrenmanlarına liste veya takvim görünümünden kolayca ulaş.</p>
-            </div>
-
-            <div class="feature-card">
-                <span class="icon">⚖️</span>
+                <span class="feature-icon">📏</span>
                 <h3>Vücut Analizi</h3>
-                <p>Sadece barı değil, vücudunu da takip et. Yağ oranı ölçümlerini kaydet ve zaman içindeki değişimini gör.</p>
+                <p>Sadece ağırlıkları değil, vücudunu da takip et. Yağ oranı ve vücut ölçümlerini kaydet, değişimi gör.</p>
             </div>
-
-             <div class="feature-card">
-                <span class="icon">🏆</span>
-                <h3>Rozetler & Motivasyon</h3>
-                <p>Hedeflerine ulaştıkça rozetler kazan. Antrenman hatırlatıcıları ile disiplinini koru.</p>
-            </div>
-
         </div>
-    </div>
 
-    <div class="screenshots-section">
-        <h2 style="border: none; margin-bottom: 30px;">Uygulama Görünümü</h2>
-        <div class="screenshots-scroll">
-            <img src="https://via.placeholder.com/260x560?text=Ana+Ekran" class="screenshot-img" alt="Ana Ekran">
-            <img src="https://via.placeholder.com/260x560?text=Antrenman+Kaydi" class="screenshot-img" alt="Antrenman Kaydı">
-            <img src="https://via.placeholder.com/260x560?text=Program+Secimi" class="screenshot-img" alt="Programlar">
-            <img src="https://via.placeholder.com/260x560?text=Grafikler" class="screenshot-img" alt="İstatistikler">
-            <img src="https://via.placeholder.com/260x560?text=Ayarlar" class="screenshot-img" alt="Ayarlar">
+        <div class="screenshots-container">
+            <h2 style="text-align: center; margin-bottom: 30px; border: none;">Uygulama Görüntüleri</h2>
+            <div class="screenshots-scroll">
+                <img src="https://via.placeholder.com/240x520?text=Antrenman+Ekrani" class="screenshot-img" alt="Antrenman Ekranı">
+                <img src="https://via.placeholder.com/240x520?text=Grafikler" class="screenshot-img" alt="Grafikler">
+                <img src="https://via.placeholder.com/240x520?text=Programlar" class="screenshot-img" alt="Program Seçimi">
+                <img src="https://via.placeholder.com/240x520?text=Gecmis" class="screenshot-img" alt="Geçmiş">
+            </div>
         </div>
     </div>
 
     <div class="legal-section">
         <div class="legal-content">
             
-            <h2 id="contact">İletişim & Destek (Support)</h2>
-            <p>Uygulama ile ilgili sorularınız, önerileriniz veya yaşadığınız sorunlar için:</p>
+            <h2 id="contact">İletişim & Destek</h2>
+            <p>LiftLog 5x5 Pro ile ilgili hata bildirimi, öneri veya sorularınız için:</p>
             <p>📧 <strong><a href="mailto:talhabekaroglu@gmail.com">talhabekaroglu@gmail.com</a></strong></p>
 
             <h2 id="privacy">Gizlilik Politikası (Privacy Policy)</h2>
-            <p style="color: #666; font-size: 0.85rem;">Son Güncelleme: 08.02.2026</p>
+            <p style="font-size: 0.9rem; color: #666;">Son Güncelleme: 08.02.2026</p>
             
             <p>
-                <strong>LiftLog 5x5 Pro</strong> ("Uygulama"), kişisel verilerinizin gizliliğine ve güvenliğine en üst düzeyde önem verir.
+                <strong>LiftLog 5x5 Pro</strong> geliştiricisi Talha Bekaroğlu olarak kişisel gizliliğinize saygı duyuyorum.
             </p>
 
-            <h3>1. Veri Saklama ve Kullanım</h3>
+            <h3>Toplanan Veriler</h3>
             <p>
-                Uygulamamız, oluşturduğunuz antrenman kayıtlarını, vücut ölçümlerini ve kişisel ayarlarınızı <strong>sadece kendi cihazınızda (yerel depolama)</strong> saklar. Verileriniz hiçbir şekilde harici bir sunucuya gönderilmez, işlenmez veya üçüncü şahıslarla paylaşılmaz.
+                Uygulama içerisinde girdiğiniz antrenman verileri (ağırlıklar, setler, tekrarlar), vücut ölçümleri ve ayarlar <strong>sadece cihazınızda (yerel olarak)</strong> saklanır. Bu veriler herhangi bir dış sunucuya gönderilmez.
             </p>
 
-            <h3>2. İzinler</h3>
+            <h3>İzinler</h3>
             <p>
-                <strong>Bildirimler:</strong> Uygulama, sadece antrenman hatırlatmaları ve set arası dinlenme süresi bittiğinde sizi uyarmak amacıyla bildirim izni isteyebilir.
+                <strong>Bildirimler:</strong> Sadece antrenman günlerinizi hatırlatmak ve dinlenme sayacı (timer) bittiğinde haber vermek için kullanılır.
             </p>
 
-            <h3>3. Üçüncü Taraf Hizmetler</h3>
+            <h3>Üçüncü Taraf Hizmetler</h3>
             <p>
-                Uygulama içerisinde kullanıcı davranışlarını izleyen (analytics) veya reklam gösteren üçüncü taraf yazılımlar bulunmamaktadır.
-            </p>
-
-            <h3>4. İletişim</h3>
-            <p>
-                Gizlilik politikamızla ilgili sorularınız için <a href="mailto:talhabekaroglu@gmail.com">talhabekaroglu@gmail.com</a> adresinden bize ulaşabilirsiniz.
+                Uygulama, reklam gösterme veya kullanıcı davranışı takibi (analytics) amacıyla üçüncü taraf kütüphaneler kullanmamaktadır. Tamamen reklamsız ve takipçisiz bir deneyim sunar.
             </p>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Y.Talha Bekaroğlu. Tüm hakları saklıdır.</p>
+        <p>&copy; 2026 Talha Bekaroğlu. LiftLog 5x5 Pro.</p>
     </footer>
 
 </body>
