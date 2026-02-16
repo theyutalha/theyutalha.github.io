@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LiftLog 5x5 Pro - Privacy Policy</title>
-    <meta name="description" content="Privacy Policy for LiftLog 5x5 Pro.">
+    <title>LiftLog 5x5 Pro - Gizlilik Politikası</title>
+    <meta name="description" content="LiftLog 5x5 Pro gizlilik politikası: Firebase veri işleme, Apple ile Giriş ve kullanıcı hakları.">
     <style>
         :root {
             --bg: #f5f5f7;
@@ -21,32 +21,31 @@
             color: var(--text);
             line-height: 1.6;
         }
-        .wrap {
-            max-width: 860px;
+        .container {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 32px 20px 48px;
+            padding: 24px;
         }
         .card {
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 18px;
+            border-radius: 16px;
             padding: 24px;
         }
         h1 {
-            margin: 0 0 8px;
+            margin-top: 0;
             font-size: 2rem;
         }
-        .updated {
-            margin: 0 0 22px;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
         h2 {
-            margin: 20px 0 8px;
+            margin-top: 28px;
             font-size: 1.2rem;
         }
-        p {
-            margin: 0 0 12px;
+        p, li {
+            color: #2c2c2e;
+        }
+        .meta {
+            color: var(--muted);
+            font-size: 0.95rem;
         }
         a {
             color: var(--link);
@@ -58,33 +57,45 @@
     </style>
 </head>
 <body>
-    <main class="wrap">
+    <main class="container">
         <article class="card">
-            <h1>Privacy Policy</h1>
-            <p class="updated">Last Updated: February 8, 2026</p>
+            <h1>Gizlilik Politikası</h1>
+            <p class="meta">Son Güncelleme: 12.02.2026</p>
 
-            <h2>1. Data Privacy and Security</h2>
-            <p>LiftLog 5x5 Pro does not store your personal data on our servers. Your workout logs, body measurements, and settings are stored only on your own device (Local Storage).</p>
+            <p>Bu politika, LiftLog 5x5 Pro uygulamasında hangi verilerin işlendiğini, nerede saklandığını ve nasıl kullanıldığını açıklar.</p>
 
-            <h2>2. Permissions</h2>
-            <p>The app may request notification permission to remind you about workouts or rest timer completion. This permission is used only for those purposes.</p>
+            <h2>1. Toplanan Veriler</h2>
+            <ul>
+                <li>Antrenman kayıtları, set/tekrar/ağırlık bilgileri, notlar ve zaman verileri.</li>
+                <li>Vücut ölçümleri ve yağ oranı gibi kullanıcı tarafından girilen fitness verileri.</li>
+                <li>Ayarlar ve uygulama içi tercih verileri.</li>
+                <li>Apple ile Giriş kullanıldığında hesap tanımlayıcı bilgileri (ör. Apple kullanıcı kimliği, paylaşılırsa e-posta).</li>
+            </ul>
 
-            <h2>3. Third-Party Services</h2>
-            <p>LiftLog 5x5 Pro does not include analytics trackers or ad networks. The app is ad-free and tracker-free.</p>
+            <h2>2. Veri Saklama ve Altyapı</h2>
+            <p>Veriler, hesap tabanlı senkronizasyon sağlamak amacıyla Firebase altyapısında (ör. Authentication ve veritabanı servisleri) saklanabilir. Uygulama bazı verileri cihaz üzerinde yerel olarak da tutabilir.</p>
 
-            <h2>4. Contact</h2>
-            <p>If you have any questions about this policy, <a id="contactLink" href="#">Contact us</a>.</p>
+            <h2>3. Verilerin Kullanım Amaçları</h2>
+            <ul>
+                <li>Antrenman takibi, ilerleme analizi ve uygulama özelliklerinin çalıştırılması.</li>
+                <li>Hesap doğrulama ve cihazlar arası senkronizasyon.</li>
+                <li>Bildirim özellikleri (antrenman ve dinlenme hatırlatmaları).</li>
+            </ul>
+
+            <h2>4. Üçüncü Taraf Servisler</h2>
+            <p>Uygulama veri saklama ve kimlik doğrulama için Firebase servislerini kullanır. Kimlik doğrulama için Apple ile Giriş kullanılabilir. Uygulama içinde reklam ağı kullanılmaz.</p>
+
+            <h2>5. Veri Güvenliği</h2>
+            <p>Veri güvenliği için makul teknik ve organizasyonel önlemler uygulanır. Ancak internet üzerinden iletim veya bulut depolama sistemlerinde mutlak güvenlik garanti edilemez.</p>
+
+            <h2>6. Kullanıcı Hakları</h2>
+            <p>Uygulama içinden verilerinizi düzenleyebilir/silebilir veya destek adresi üzerinden veri taleplerinizi iletebilirsiniz.</p>
+
+            <h2>7. İletişim</h2>
+            <p>Gizlilik ile ilgili sorular için: <a href="mailto:talhabekaroglu@gmail.com">talhabekaroglu@gmail.com</a></p>
+
+            <p class="meta"><a href="./index.html">Ana sayfaya dön</a></p>
         </article>
     </main>
-
-    <script>
-        (function () {
-            var user = String.fromCharCode(116, 97, 108, 104, 97, 98, 101, 107, 97, 114, 111, 103, 108, 117);
-            var domain = String.fromCharCode(103, 109, 97, 105, 108, 46, 99, 111, 109);
-            var email = user + "@" + domain;
-            var link = document.getElementById("contactLink");
-            if (link) link.setAttribute("href", "mailto:" + email);
-        })();
-    </script>
 </body>
 </html>
